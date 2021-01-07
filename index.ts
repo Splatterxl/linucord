@@ -10,7 +10,7 @@ export const client: Client = new Client(),
 	],
 	cmds = new Collection();
 
-for (const file of readdirSync(join(__dirname, 'commands')).filter(f=>f.endsWith('.js')||f.endsWith('.ts'))) {
+for (const file of ["sys"]) {
 	const fileOutput = import(join(__dirname, 'commands', file));
 	cmds.set(file.replace(/\.(t|j)s/g, ''), fileOutput);
 }
