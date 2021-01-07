@@ -7,7 +7,7 @@ export const client: Client = new Client(),
     "sudo "
   ]
 
-client.on("ready", () => console.log(`${client.tag} is online!`));
+client.on("ready", () => console.log(`${client.user.tag} is online!`));
 
 client.on("message", (m: Message) => {
   if (m.author.bot || !m.content.startsWith(prefixes[0]) || m.channel.type == "dm") return;
