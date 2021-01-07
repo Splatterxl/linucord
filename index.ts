@@ -14,7 +14,7 @@ export const client: Client = new Client(),
 {for (const file of ["sys"]) {
 	const fileOutput = await import(join(__dirname, 'commands', file));
 	cmds.set(file.replace(/\.(t|j)s/g, ''), fileOutput);
-}})((
+}})()
 console.log(`loaded ${cmds.size} cmds`);
 console.log(cmds)
 
