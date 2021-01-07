@@ -19,7 +19,7 @@ client.on("message", (m: Message) => {
   
   try {
     // @ts-ignore
-    cmds.get(cmd).run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name} $ ${m.cleanContent}\n${output}\n\`\`\``));
+    cmds.get(cmd).run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name.toLowerCase().replace(/( |_)/g, "-")} $ ${m.cleanContent}\n${output}\n\`\`\``));
   } catch {}
 });
 
