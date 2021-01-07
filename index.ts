@@ -1,4 +1,4 @@
-import { Client, Message, MessageEmbed } from "discord.js";
+import { Client, Message, MessageEmbed, Collection } from "discord.js";
 import { config } from "dotenv";
 config();
 
@@ -6,7 +6,7 @@ export const client: Client = new Client(),
   prefixes = [
     "sudo "
   ],
-  cmds = new Discord.Collection();
+  cmds = new Collection();
 
 cmds.set("sys", (m, a) => (a[1] == "ping") ? `Pong! WebSocket Latency: ${client.ws.ping}ms` : "sys: unknown system command")
 
