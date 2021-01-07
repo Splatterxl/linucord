@@ -6,7 +6,7 @@ export const client: Client = new Client(),
   prefixes = [
     "sudo "
   ],
-  cmds = new Collection<string, ({ run: async ((m: Message, a: string[]) => string) })>();
+  cmds = new Collection<string, ({ run: async (m: Message, a: string[]) => string })>();
 
 cmds.set("sys", async (m, a) => (a[1] == "ping") ? `Pong! WebSocket Latency: ${client.ws.ping}ms` : "sys: unknown system command")
 
