@@ -16,7 +16,7 @@ client.on("message", (m: Message) => {
   if (m.author.bot || !m.content.startsWith(prefixes[0]) || m.channel.type == "dm") return;
   const args = m.content.slice(prefixes[0].length).split(/ +/), 
     cmd = args[0];
-  cmds.get(cmd)?.run(m, cmd).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name} $ ${msg.cleanContent}\n${output}\n\`\`\``));
+  cmds.get(cmd)?.run(m, cmd).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name} $ ${m.cleanContent}\n${output}\n\`\`\``));
 });
 
 client.login(process.argv[process.argv.length-1]);
