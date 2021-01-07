@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "discord.js": "github:discordjs/discord.js"
+    "discord.js": "github:discordjs/discord.js",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.14"
