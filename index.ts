@@ -11,7 +11,7 @@ export const client: Client = new Client(),
   cmds = new Collection();
 
 for (let file of readdirSync(join(__dirname, "commands")).filter(f=>f.endsWith(".js")||f.endsWith(".ts"))) {
-  const fileOutput = import(join(__dirname, "commands", "file"))
+  const fileOutput = import(join(__dirname, "commands", file))
   cmds.set(file.replace(/\.(t|j)s/g, ""), fileOutput);
 }
 
