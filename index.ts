@@ -8,7 +8,7 @@ export const client: Client = new Client(),
   ],
   cmds = new Collection();
 
-cmds.set("sys", async (m, a) => (a[1] == "ping") ? `Pong! WebSocket Latency: ${client.ws.ping}ms` : "sys: unknown system command")
+cmds.set("sys", {run: async (m, a) => (a[1] == "ping") ? `Pong! WebSocket Latency: ${client.ws.ping}ms` : "sys: unknown system command"})
 
 client.on("ready", () => console.log(`${client.user.tag} is online!`));
 
@@ -17,7 +17,9 @@ client.on("message", (m: Message) => {
   const args = m.content.slice(prefixes[0].length).split(/ +/), 
     cmd = args[0];
   // @ts-ignore
-  cmds.get(cmd)?cmds.get(cmd).run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name} $ ${m.cleanContent}\n${output}\n\`\`\``)):null;
+  try {
+    cmds.get(cmd).run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name} $ ${m.cleanContent}\n${output}\n\`\`\``));
+  } catch {}
 });
 
 client.login(process.argv[process.argv.length-1]);
