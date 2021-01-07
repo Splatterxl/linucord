@@ -10,23 +10,24 @@ export const client: Client = new Client(),
 	],
 	cmds = new Collection();
 
-for (const file of ["sys"]) {
-	const fileOutput = import(join(__dirname, 'commands', file));
+(async()=>
+{for (const file of ["sys"]) {
+	const fileOutput = await import(join(__dirname, 'commands', file));
 	cmds.set(file.replace(/\.(t|j)s/g, ''), fileOutput);
-}
-console.log('loaded ${cmds.size} cmds');
+}})((
+console.log(`loaded ${cmds.size} cmds`);
 console.log(cmds)
 
 client.on('ready', () => console.log(`${client.user.tag} is online!`));
 
-client.on('message', (m: Message) => {
+client.on('message', async (m: Message) => {
 	if (m.author.bot || !m.content.startsWith(prefixes[0]) || m.channel.type == 'dm') return;
 	const args = m.content.slice(prefixes[0].length).split(/ +/), 
 		cmd = args[0];
   
 	try {
 		// @ts-ignore
-		cmds.get(cmd).run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${output}\n\`\`\``));
+		(await cmds.get(cmd)).run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${output}\n\`\`\``));
 	} catch (e) {
 		m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${e}\n\`\`\``);
 	}
