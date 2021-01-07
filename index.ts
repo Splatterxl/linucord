@@ -14,6 +14,8 @@ for (const file of ["sys"]) {
 	const fileOutput = import(join(__dirname, 'commands', file));
 	cmds.set(file.replace(/\.(t|j)s/g, ''), fileOutput);
 }
+console.log('loaded ${cmds.size} cmds');
+console.log(cmds)
 
 client.on('ready', () => console.log(`${client.user.tag} is online!`));
 
