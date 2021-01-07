@@ -1,5 +1,7 @@
 import { Client, Message, MessageEmbed, Collection } from "discord.js";
 import { config } from "dotenv";
+import { readdirSync } from "fs";
+import { join } from "path";
 config();
 
 export const client: Client = new Client(),
@@ -8,7 +10,9 @@ export const client: Client = new Client(),
   ],
   cmds = new Collection();
 
-cmds.set("sys", {run: async (m, a) => (a[1] == "ping") ? `Pong! WebSocket Latency: ${client.ws.ping}ms` : (a[1] == "help") ? "__About me__\nI am a small Discord bot created by Splatterxl#8999 to be an accurate-as-possible interpretarion of the Bash (command line) interface. Please note that this is the only command available right now.\n\n__Commands__\nsys: The system commands you'd expect from a Discord bot.\n  - sys ping: Pings the WebSocket\n  - sys help: Brings up this help menu" : "sys: unknown system command"})
+for (let file of readdirSync(join(__dirname, "commands")).filter(f=>f.endsWith(".js")||f.endsWith(".ts"))) {
+  cmds.set(file.replace(/\.(t|j)s/g, ""), import(join(__dirname, "commands", file)));
+}
 
 client.on("ready", () => console.log(`${client.user.tag} is online!`));
 
