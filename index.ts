@@ -17,7 +17,7 @@ client.on("message", (m: Message) => {
   const args = m.content.slice(prefixes[0].length).split(/ +/), 
     cmd = args[0];
   // @ts-ignore
-  cmds.get(cmd)?.run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name} $ ${m.cleanContent}\n${output}\n\`\`\``));
+  cmds.get(cmd)?cmds.get(cmd).run(m, args).then(output=>m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, "-")}@${m.guild.name} $ ${m.cleanContent}\n${output}\n\`\`\``)):null;
 });
 
 client.login(process.argv[process.argv.length-1]);
