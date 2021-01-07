@@ -11,7 +11,8 @@ export const client: Client = new Client(),
   cmds = new Collection();
 
 for (let file of readdirSync(join(__dirname, "commands")).filter(f=>f.endsWith(".js")||f.endsWith(".ts"))) {
-  cmds.set(file.replace(/\.(t|j)s/g, ""), import(join(__dirname, "commands", file)));
+  import * as fileOutput from join(__dirname, "commands", "file")
+  cmds.set(file.replace(/\.(t|j)s/g, ""), fileOutput);
 }
 
 client.on("ready", () => console.log(`${client.user.tag} is online!`));
