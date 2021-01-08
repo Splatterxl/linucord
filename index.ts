@@ -11,7 +11,7 @@ export const client: Client = new Client(),
 	cmds = new Collection();
 
 (async()=>
-{for (const file of ["sys"]) {
+{for (const file of ["sys","sudo"]) {
 	const fileOutput = await import(join(__dirname, 'commands', file));
 	cmds.set(file.replace(/\.(t|j)s/g, ''), fileOutput);
 }})()
