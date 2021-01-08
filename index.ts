@@ -28,7 +28,7 @@ client.on('message', async (m: Message) => {
 	try {
 		// @ts-ignore
 		const output = (await (await cmds.get(cmd))?.run(m, args))
-                m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${output?output:""}\n\`\`\``)
+                if (output) m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${output?output:""}\n\`\`\``)
 	} catch (e) {
 		m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${e}\n\`\`\``);
 	}
