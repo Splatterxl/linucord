@@ -12,7 +12,7 @@
   },
   "name": "linucord",
   "description": "Linucord is an open-source Discord bot aiming to be an accurate-as-possible interpretation of the Bash interface.",
-  "version": "0.0.2",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "test": "npx nodemon ."
