@@ -8,7 +8,8 @@ export const run = async (msg: Message, a: string[]) => {
   const passwdCollector = msg.channel.createMessageCollector(mc => mc.author.id == msg.author.id, { time: 15000 });
   const passwd = { correct: `toor`, has: false };
   passwdCollector.on("collect", m => {
-    if (passwd.correct == m.content) { 
+    if (passwd.correct == m.content) {
+      // @ts-ignore 
       prompt.edit(CommandOutput(msg, a[2] ? `[sudo]: password for ${msg.author.username.toLowerCase().replace(/( |_)/g, "-")}: ${cmds.get(a[2].toLowerCase())?.run(msg, a.slice(1))}` :`[sudo]: password for ${msg.author.username.toLowerCase().replace(/( |_)/g, "")}: \n\nWhat command should I even run? Make sense, darnit`))
       passwdCollector.stop();
     } else {
