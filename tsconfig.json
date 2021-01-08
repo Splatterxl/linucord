@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "checkJs": true,
+        "allowUnusedLabels": false,
+        "allowUnreachableCode": false,
+        "declaration": true,
+        "declarationMap": true,
+        "resolveJsonModule": true,
+        "outDir": "dist/"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "compileOnSave": false,
+    "exclude": [
+        "dist/**"
+    ]
+}

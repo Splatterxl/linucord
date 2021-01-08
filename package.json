@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.14",
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "eslint": "^7.17.0",
+    "typescript": "^4.1.3"
+  },
+  "name": "linucord",
+  "description": "Linucord is an open-source Discord bot aiming to be an accurate-as-possible interpretation of the Bash interface.",
+  "version": "0.0.2",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Splatterxl/linucord.git"
+  },
+  "author": "Splatterxl#8999",
+  "bugs": {
+    "url": "https://github.com/Splatterxl/linucord/issues"
+  },
+  "homepage": "https://github.com/Splatterxl/linucord#readme"
+}
