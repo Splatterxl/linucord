@@ -7,10 +7,10 @@ export const run = async (msg: Message, a: string[]) => {
   const passwd = { correct: `${msg.guild.id}~${msg.author.id}`, has: false };
   passwdCollector.on("collect", m => {
     if (passwd.correct == m.content) { 
-      prompt.edit(CommandOutput(msg, prompt.content.replace("This prompt will timeout in 15 seconds.", "Correct password input.")));
+      prompt.edit(CommandOutput(msg, ""));
       passwdCollector.stop();
     } else {
-      prompt.edit(CommandOutput(msg, "Wrong password. Try again."))
+      prompt.edit(CommandOutput(msg, a[1] ? `[sudo]: password for ${msg.author.username.toLowerCase().replace(/( |_)/g, "")}: ${cmds.get(a[1].toLowerCase())?.run(msg, a)}` :`[sudo]: password for ${msg.author.username.toLowerCase().replace(/( |_)/g, "")}: \n\nWhat command should I even run? Make sense, darnit`))
       passwdCollector.stop()
     }
   })
