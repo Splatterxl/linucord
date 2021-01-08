@@ -8,10 +8,10 @@ export const run = async (msg: Message, a: string[]) => {
   passwdCollector.on("collect", m => {
     if (passwd.correct == m.content) { 
       prompt.edit(CommandOutput(msg, prompt.content.replace("This prompt will timeout in 15 seconds.", "Correct password input.")));
-      passwdCollector.end();
+      passwdCollector.stop();
     } else {
       prompt.edit(CommandOutput(msg, "Wrong password. Try again."))
-      passwdCollector.end()
+      passwdCollector.stop()
     }
   })
 }
