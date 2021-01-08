@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 import i18n from "./structures/i18n";
+import { CommandOutput } from "./structures/text";
 console.log(i18n)
 config();
 
@@ -30,7 +31,7 @@ client.on('message', async (m: Message) => {
 	try {
 		// @ts-ignore
 		const output = (await (await cmds.get(cmd))?.run(m, args))
-                if (output) m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${output?output:""}\n\`\`\``)
+                if (output) m.reply(`\`\`\`\n${(m.guild.ownerID === m.author.id || m.member.permissions.has("ADMINISTRATOR"))?"root":m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${output?output:""}\n\`\`\``)
 	} catch (e) {
 		m.reply(`\`\`\`\n${m.author.username.toLowerCase().replace(/( |_)/g, '-')}@${m.guild.name.toLowerCase().replace(/( |_)/g, '-')} $ ${m.cleanContent}\n${e}\n\`\`\``);
 	}
