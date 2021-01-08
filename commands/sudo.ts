@@ -12,6 +12,7 @@ export const run = async (msg: Message, a: string[]) => {
       prompt.edit(CommandOutput(msg, ""));
       passwdCollector.stop();
     } else {
+      // @ts-ignore It works, okey?
       prompt.edit(CommandOutput(msg, a[1] ? `[sudo]: password for ${msg.author.username.toLowerCase().replace(/( |_)/g, "")}: ${cmds.get(a[1].toLowerCase())?.run(msg, a)}` :`[sudo]: password for ${msg.author.username.toLowerCase().replace(/( |_)/g, "")}: \n\nWhat command should I even run? Make sense, darnit`))
       passwdCollector.stop()
     }
