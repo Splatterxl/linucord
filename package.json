@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/Splatterxl/linucord/issues"
   },
-  "homepage": "https://github.com/Splatterxl/linucord#readme"
+  "homepage": "https://github.com/Splatterxl/linucord#readme",
+  "changelog":"Version 1.0.2\n\n- Add sudo.ts\n- Add a CommandOutput structure."
 }
