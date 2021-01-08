@@ -1,5 +1,7 @@
 import { Message } from "discord.js";
 import { CommandOutput } from "../structures/text";
+import { cmds } from "../index";
+
 
 export const run = async (msg: Message, a: string[]) => {
   const prompt = await msg.channel.send(CommandOutput(msg, `[sudo]: password for ${msg.author.username.toLowerCase().replace(/( |_)/g, "")}: \n\n\nThis prompt will timeout in 15 seconds.`));
