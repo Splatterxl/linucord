@@ -10,7 +10,7 @@ export const run = async (msg: Message, a: string[]) => {
       prompt.edit(new CommandOutput(msg, prompt.content.replace("This prompt will timeout in 15 seconds.", "Correct password input.")));
       passwdCollector.end();
     } else {
-      prompt.edit(new CommandOutput(msg, "Wrong password. Try again."));
+      return "Wrong password. Try again."
       passwdCollector.end()
     }
   })
