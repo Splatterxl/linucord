@@ -2,6 +2,8 @@ import { Client, Message, MessageEmbed, Collection } from 'discord.js';
 import { config } from 'dotenv';
 import { readdirSync } from 'fs';
 import { join } from 'path';
+import i18n from "./structures/i18n";
+console.log(i18n)
 config();
 
 export const client: Client = new Client(),
