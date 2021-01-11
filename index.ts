@@ -7,7 +7,13 @@ import { CommandOutput } from "./structures/text";
 console.log(i18n)
 config();
 
-export const client: Client = new Client(),
+export const client: Client = new Client({
+    presence: {
+       activity: {
+            name: 'sudo su',
+            type: 'PLAYING'
+        }}
+  }),
 	prefixes = [
 		'sudo '
 	],
