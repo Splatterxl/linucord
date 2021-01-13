@@ -10,11 +10,13 @@
         "outDir": "dist/"
     },
     "include": [
-        "."
+        "./**/*"
     ],
     "compileOnSave": false,
     "exclude": [
         "dist/**",
-        "start.sh"
+        "start.sh",
+        "package*.json",
+        ".eslintrc*"
     ]
 }
