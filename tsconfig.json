@@ -10,10 +10,11 @@
         "outDir": "dist/"
     },
     "include": [
-        "src/**/*"
+        "."
     ],
     "compileOnSave": false,
     "exclude": [
-        "dist/**"
+        "dist/**",
+        "start.sh"
     ]
 }
