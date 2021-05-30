@@ -15,6 +15,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 export var config = {
-    token: "Nzg4MTQxODMyOTYxNzg1OTE2.X9fMRw.KOXmV5zKOwu8jjQSd_iFGRRMuH0",
-    prefix: "~$"
+  token: "",
+  prefix: "~$",
 };
