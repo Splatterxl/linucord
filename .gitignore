@@ -1,4 +1,2 @@
-token.json
-src/
-node_modules/
-start.sh
+src/config.ts
+dist
